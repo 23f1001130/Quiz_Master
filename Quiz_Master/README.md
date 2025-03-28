@@ -1,6 +1,6 @@
 # Quiz Master
 
-**Quiz Master** is a multi-user web application designed for exam preparation across multiple courses. It provides two roles—an administrator (Quiz Master) and a regular user—with distinct features for managing quizzes and tracking performance.
+**Quiz Master** is a multi-user web application designed for exam preparation across multiple courses. It provides two roles an administrator (Quiz Master) and a regular user with distinct features for managing quizzes and tracking performance.
 
 ## Features
 
@@ -22,4 +22,12 @@
 - **JavaScript & Chart.js (optional):** For interactive graphs and analytics on the admin dashboard.
 
 ## Project Structure
-Quiz_Master/ ├── controllers/ # Application routes/controllers ├── models/ # SQLAlchemy models ├── static/ # Static files (CSS, JS, images) ├── templates/ # Jinja2 HTML templates ├── extensions.py # Flask extension initialization ├── app.py # Main application entry point ├── requirements.txt # Project dependencies └── .gitignore # Specifies files/folders to ignore (e.g., env/, pycache)
+Quiz_Master/ 
+            ├── controllers/ # Application routes/controllers 
+            ├── models/ # SQLAlchemy models 
+            ├── static/ # Static files (CSS, JS, images) 
+            ├── templates/ # Jinja2 HTML templates 
+            ├── extensions.py # Flask extension initialization 
+            ├── app.py # Main application entry point 
+            ├── requirements.txt # Project dependencies 
+            └── .gitignore # Specifies files/folders to ignore (e.g., env/, pycache)
