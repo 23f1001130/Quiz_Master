@@ -1,0 +1,88 @@
+{% extends 'Layout.html' %}
+
+{% block title %}
+ Login-Quiz_Master
+{% endblock %}
+
+{% block content %}
+       <h1>Welcome To Quiz Master </h1>
+       <h2> Login 🔐</h2>
+       <form method="post" class="mt-5">
+         <div class="form-group">
+           <label for="username" class="form-label">Username: </label>
+           <input type="text" name="username" id="username" class="form-control" placeholder="Enter your username" required />
+         </div>
+
+         <br>
+         <div class="form-group">
+           <label for="password" class="form-label">Password:</label>
+           <input type="password" name="password" id="password" class="form-control" placeholder="Enter your password" required/>
+         </div>
+         <br>
+         <div>
+           <input type="submit" value="Login" class="btn btn-secondary text-black fw-bold">
+         </div>
+      </form>
+{% endblock %}
+
+{% block style %}
+<style>
+    body {
+      background: url('https://images.unsplash.com/photo-1508615121316-fe792af62a63?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')
+      no-repeat center center fixed;
+      background-size: cover;
+      position: relative;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      width: 300px;
+      padding: 20px;
+      margin: 0 auto;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+      text-align: left;
+      color: black;
+      background: transparent;
+    }
+
+    h1, h2 {
+      margin-bottom: 20px;
+      text-align: center;
+      color: rgb(244, 244, 246);
+    }
+
+    .form-group {
+      text-align: left;
+      width: 100%;
+    }
+
+    
+    #username {
+      position: relative;
+      top: -3px;
+    }
+
+    .btn {
+      position: relative;
+      top: -5px;
+    }
+</style>
+{% endblock %}

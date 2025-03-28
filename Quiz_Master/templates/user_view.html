@@ -1,0 +1,71 @@
+{% extends "Layout.html" %}
+{% block title %}Quiz Details{% endblock %}
+
+{% block style %}
+<style>
+    .quiz-details-container {
+        margin-top: 80px;
+    }
+    .details-card {
+        max-width: 700px;
+        margin: 0 auto;
+    }
+    .details-table th {
+        width: 40%;
+        background-color: #f8f9fa;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="quiz-details-container container">
+    <div class="row">
+        <div class="col-12">
+            <div class="card details-card">
+                <div class="card-header bg-info text-white">
+                    <h3 class="card-title text-center mb-0">Quiz Details</h3>
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered details-table">
+                        <tbody>
+                            <tr>
+                                <th>Quiz ID</th>
+                                <td>{{ quiz.id }}</td>
+                            </tr>
+                            <tr>
+                                <th>Title</th>
+                                <td>{{ quiz.title }}</td>
+                            </tr>
+                            <tr>
+                                <th>Subject</th>
+                                <td>{{ quiz.chapter.subject.subject }}</td>
+                            </tr>
+                            <tr>
+                                <th>Chapter</th>
+                                <td>{{ quiz.chapter.name }}</td>
+                            </tr>
+                            <tr>
+                                <th>Number of Questions</th>
+                                <td>{{ questions|length }}</td>
+                            </tr>
+                            <tr>
+                                <th>Scheduled Date</th>
+                                <td>{{ quiz.date }}</td>
+                            </tr>
+                            <tr>
+                                <th>Duration</th>
+                                <td>{{ quiz.duration }} minutes</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="text-center">
+                        <a href="{{ url_for('Homepage') }}" class="btn btn-secondary">Close</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block script %}{% endblock %}

@@ -1,0 +1,64 @@
+{% extends "Layout.html" %}
+{% block title %}
+    Edit Quiz
+{% endblock %}
+{% block content %}
+    <div class="container d-flex justify-content-center align-items-center vh-100">
+        <div class="card p-4 shadow-lg" style="width: 50%; background-color: #f8f9fa;">
+            <div class="text-center mb-4">
+                <h1 class="fw-bold px-3 py-2 shadow-sm d-inline-block"
+                    style="background-color: white; color: black; border-radius: 5px;">
+                    Edit Quiz
+                </h1>
+            </div>
+            <form method="post" action="{{ url_for('Edit_quiz_post', chapter_id=quiz.chapter_id, quiz_id=quiz.id) }}">
+                <div class="form-group mb-3">
+                    <label for="title" class="form-label">Quiz Title:</label>
+                    <input type="text" class="form-control" id="title" name="title" value="{{ quiz.title }}" required>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="chapter" class="form-label">Chapter:</label>
+                    <select class="form-control" id="chapter" name="chapter_id" required>
+                        <option value="">Select Chapter</option>
+                        {% for chapter in chapters %}
+                            <option value="{{ chapter.id }}" {% if chapter.id == quiz.chapter_id %}selected{% endif %}>
+                                {{ chapter.name }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="date" class="form-label">Date:</label>
+                    <input type="date" class="form-control" id="date" name="date" value="{{ quiz.date }}" required>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="duration" class="form-label">Duration (minutes):</label>
+                    <input type="number" class="form-control" id="duration" name="duration" value="{{ quiz.duration }}" required>
+                </div>
+                <div class="text-center mt-4">
+                    <button type="submit" class="btn btn-primary me-2">Update</button>
+                    <a href="javascript:history.back()" class="btn btn-secondary">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}
+{% block style %}
+    <style>
+        body {
+            background-color: #e9ecef; 
+        }
+        h1 {
+            font-size: 2rem;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .card {
+            max-width: 550px;
+        }
+        @media (max-width: 768px) {
+            .card {
+                width: 90% !important;
+            }
+        }
+    </style>
+{% endblock %}

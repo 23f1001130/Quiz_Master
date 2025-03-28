@@ -1,0 +1,121 @@
+{% extends "layout.html" %}
+
+{% block title %}Admin Summary {% endblock %}
+
+{% block content %}
+<style>
+
+    .summary-container {
+        margin-top: 100px;
+    }
+
+
+    .summary-title {
+        text-align: center;
+        font-size: 24px;
+        font-weight: bold;
+        background-color: white;
+        padding: 10px 20px;
+        border-radius: 8px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        width: fit-content;
+        margin: 20px auto;
+    }
+
+
+    .chart-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+        flex-wrap: wrap;
+        margin-top: 30px;
+    }
+
+
+    .chart-box {
+        width: 400px;
+        height: 400px;
+        background: #fff;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    canvas {
+        width: 100% !important;
+        height: 100% !important;
+    }
+</style>
+
+<div class="summary-container">
+
+    <div class="summary-title">Admin Summary 📈</div>
+
+
+    <div class="chart-container">
+
+        <div class="chart-box">
+            <canvas id="attemptChart"></canvas>
+        </div>
+
+       
+        <div class="chart-box">
+            <canvas id="scoreChart"></canvas>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const subjects = JSON.parse('{{ subjects | tojson | safe }}');
+        const attempts = JSON.parse('{{ attempts | tojson | safe }}');
+        const scores = JSON.parse('{{ scores | tojson | safe }}');
+
+        // Bar Chart - User Attempts (Blue)
+        new Chart(document.getElementById('attemptChart').getContext('2d'), {
+            type: 'bar',
+            data: {
+                labels: subjects,
+                datasets: [{
+                    label: 'User Attempts',
+                    data: attempts,
+                    backgroundColor: 'rgba(54, 162, 235, 0.8)',  // Blue
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: { y: { beginAtZero: true } }
+            }
+        });
+
+        // Doughnut Chart - Top Scores (Red)
+        new Chart(document.getElementById('scoreChart').getContext('2d'), {
+            type: 'doughnut',
+            data: {
+                labels: subjects,
+                datasets: [{
+                    label: 'Top Scores',
+                    data: scores,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.8)',  // Red
+                        'rgba(255, 159, 64, 0.8)',
+                        'rgba(255, 206, 86, 0.8)',
+                        'rgba(75, 192, 192, 0.8)',
+                        'rgba(153, 102, 255, 0.8)'
+                    ]
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false
+            }
+        });
+    });
+</script>
+
+{% endblock %}

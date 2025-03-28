@@ -1,0 +1,73 @@
+{% extends "Layout.html" %}
+{% block title %}
+    Edit Question
+{% endblock %}
+{% block content %}
+    <div class="container d-flex justify-content-center align-items-center vh-100">
+        <div class="card p-4 shadow-lg" style="width: 60%; background-color: #f8f9fa;">
+            <div class="text-center mb-4">
+                <h1 class="fw-bold px-3 py-2 shadow-sm d-inline-block"
+                    style="background-color: white; color: black; border-radius: 5px;">
+                    Edit Question
+                </h1>
+                <p class="mt-2">Quiz: {{ quiz.title }}</p>
+            </div>
+            <form method="post" action="{{ url_for('Edit_question_post', quiz_id=quiz.id, question_id=question.id) }}">
+                <div class="form-group mb-3">
+                    <label for="question_text" class="form-label">Question:</label>
+                    <textarea class="form-control" id="question_text" name="ques_text" rows="3" required>{{ question.ques_text }}</textarea>
+                </div>
+
+                <!-- MCQ Options (fixed, no type selection) -->
+                <div id="multiple_choice_options" class="mb-3">
+                    <label class="form-label">Options:</label>
+                    {% for i in range(1, 5) %}
+                    <div class="mb-2">
+                        <div class="input-group">
+                            <div class="input-group-text">
+                                <input type="radio" name="correct_option" value="{{ i }}" {% if question.correct_option == i %}checked{% endif %} required>
+                            </div>
+                            <input type="text" class="form-control" name="option{{ i }}" placeholder="Option {{ i }}"
+                                   value="{{ question.options[i-1].option_text if question.options and i <= question.options|length else '' }}" required>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="points" class="form-label">Points:</label>
+                    <input type="number" class="form-control" id="points" name="points" min="1" value="{{ question.points }}" required>
+                </div>
+
+                <div class="text-center mt-4">
+                    <button type="submit" class="btn btn-primary me-2">Update</button>
+                    <a href="{{ url_for('Quiz_questions', quiz_id=quiz.id) }}" class="btn btn-secondary">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}
+{% block script %}
+    <script>
+       
+    </script>
+{% endblock %}
+{% block style %}
+    <style>
+        body {
+            background-color: #e9ecef;
+        }
+        h1 {
+            font-size: 2rem;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .card {
+            max-width: 650px;
+        }
+        @media (max-width: 768px) {
+            .card {
+                width: 90% !important;
+            }
+        }
+    </style>
+{% endblock %}

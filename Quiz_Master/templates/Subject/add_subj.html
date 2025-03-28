@@ -1,0 +1,49 @@
+{% extends "Layout.html" %}
+{% block title %}
+    Add Subject
+{% endblock %}
+{% block content %}
+    <div class="container d-flex justify-content-center align-items-center vh-100">
+        <div class="card p-4 shadow-lg" style="width: 50%; background-color: #f8f9fa;">
+            <div class="text-center mb-4">
+                <h1 class="fw-bold px-3 py-2 shadow-sm d-inline-block"
+                    style="background-color: white; color: black; border-radius: 5px;">
+                    New Subject
+                </h1>
+            </div>
+            <form method="post">
+                <div class="form-group mb-3">
+                    <label for="subject" class="form-label">Subject:</label>
+                    <input type="text" class="form-control" id="subject" name="subject" required>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="description" class="form-label">Description:</label>
+                    <textarea class="form-control" id="description" name="description" rows="4"></textarea>
+                </div>
+                <div class="text-center mt-4">
+                    <button type="submit" class="btn btn-primary me-2">Save</button>
+                    <a href="javascript:history.back()" class="btn btn-secondary">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}
+{% block style %}
+    <style>
+        body {
+            background-color: #e9ecef; 
+        }
+        h1 {
+            font-size: 2rem;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .card {
+            max-width: 550px;
+        }
+        @media (max-width: 768px) {
+            .card {
+                width: 90% !important;
+            }
+        }
+    </style>
+{% endblock %}

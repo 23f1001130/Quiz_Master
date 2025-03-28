@@ -1,0 +1,94 @@
+{% extends 'Layout.html' %}
+{% block title %}
+Register-Quiz_Master
+{% endblock %}
+{% block content %}
+     <h1>Registration 🪪</h1>
+      <form method="post" class="mt-5">
+         <div class="form-group w-25">
+            <label for="name" class="form-label">Full name:</label>
+            <input type="text" name="name" id="name" class="form-control" placeholder="Enter your Full name" required />
+         </div>
+         <br>
+         <div class="form-group w-25">
+            <label for="username" class="form-label">Username: </label>
+            <input type="text" name="username" id="username" class="form-control" placeholder="Enter your username" required/>
+         </div>
+         <br>
+         <div class="form-group w-25">
+            <label for="date" class="form-label">Date Of Birth(DOB):</label>
+            <input type="date" name="date" id="date" class="form-control" >
+         </div>
+         <br>
+         <div class="form-group w-25">
+            <label for="qualification" class="form-label">Qualification:</label>
+            <select name="qualification" id="qualification" class="form-select">
+              <option value="" disabled selected>Select your qualification</option>
+              <option value="highschool">High School</option>
+              <option value="intermediate">Intermediate (12th)</option>
+              <option value="bachelor">Bachelor's Degree</option>
+              <option value="master">Master's Degree</option>
+              <option value="phd">PhD</option>
+              <option value="other">Other</option>
+            </select>
+         </div>
+         <br>
+         <div class="form-group w-25">
+            <label for="password" class="form-label">Password:</label>
+            <input type="password" name="password" id="password" class="form-control" placeholder="Enter your password" required/>
+         </div>
+         <br>
+         <input type="submit" value="Register" class="btn btn-secondary mt-3 w-25 text-black fw-bold ">
+      </form>
+{% endblock %}
+{% block style %}
+<style>
+    body {
+        background: url('https://images.unsplash.com/photo-1508615121316-fe792af62a63?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')
+        no-repeat center center fixed;
+        background-size: cover;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    h1 {
+        text-align: center;
+        color: white;
+        margin-bottom: 15px;
+    }
+    form {
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+    }
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+    }
+    label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+        text-align: left;
+        color: black;
+        background: transparent;
+    }
+    input, select {
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ddd;
+        background-color: rgba(255, 255, 255, 0.9);
+    }
+
+    
+    @media (max-width: 768px) {
+        .w-25 {
+            width: 90% !important;
+        }
+    }
+</style>
+{% endblock %}
