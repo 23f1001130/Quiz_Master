@@ -23,6 +23,14 @@
 
 ## Project Structure
 
-<pre> ```markdown Quiz_Master/ ├── controllers/ # Application routes/controllers ├── models/ # SQLAlchemy models ├── static/ # Static files (CSS, JS, images) ├── templates/ # Jinja2 HTML templates ├── extensions.py # Flask extension initialization ├── app.py # Main application entry point ├── requirements.txt # Project dependencies └── .gitignore # Specifies files/folders to ignore (e.g., env/, __pycache__) ``` </pre>
+<pre> ```markdown Quiz_Master/ 
+                             ├── controllers/ # Application routes/controllers 
+                             ├── models/ # SQLAlchemy models 
+                             ├── static/ # Static files (CSS, JS, images) 
+                             ├── templates/ # Jinja2 HTML templates 
+                             ├── extensions.py # Flask extension initialization 
+                             ├── app.py # Main application entry point 
+                             ├── requirements.txt # Project dependencies 
+                             └── .gitignore # Specifies files/folders to ignore (e.g., env/, __pycache__) ``` </pre>
 
             
