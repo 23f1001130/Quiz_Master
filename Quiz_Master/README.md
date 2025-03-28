@@ -22,6 +22,7 @@
 - **JavaScript & Chart.js (optional):** For interactive graphs and analytics on the admin dashboard.
 
 ## Project Structure
+
 Quiz_Master/ 
             ├── controllers/ # Application routes/controllers 
             ├── models/ # SQLAlchemy models 
@@ -31,3 +32,5 @@ Quiz_Master/
             ├── app.py # Main application entry point 
             ├── requirements.txt # Project dependencies 
             └── .gitignore # Specifies files/folders to ignore (e.g., env/, pycache)
+
+            
